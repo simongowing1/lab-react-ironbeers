@@ -11,7 +11,7 @@ class Home extends React.Component {
     componentDidMount() {
         axios.get('https://ih-beers-api2.herokuapp.com/beers')
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 this.setState({
                     beers: response.data
                 })
@@ -32,7 +32,12 @@ class Home extends React.Component {
                 }
             }}>All Beers</Link></li>
             <li><Link to={`/new-beer`}>New Beer</Link></li>
-            <li><Link to={`/random-beer`}>Random Beer</Link></li>
+            <li><Link to={{
+                pathname:'/random-beer',
+                state: {
+                    beers: this.state.beers
+                }
+            }}>Random Beer</Link></li>
         </ul>
         </div>
       );
