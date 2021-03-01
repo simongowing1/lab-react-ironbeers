@@ -11,7 +11,7 @@ class Beers extends React.Component {
   render(){
 let renderBeers = this.props.location.state.beers.map(beer => {
     return (
-        <div>
+        <div key={beer._id}>
     <DetailedBeers name={beer.name} img={beer.image_url} tagline={beer.tagline} contributedBy={beer.contributed_by} id={beer._id} key={beer._id}/>
     <Link to={{
                 pathname:`/beers/${beer._id}`,
@@ -24,7 +24,7 @@ let renderBeers = this.props.location.state.beers.map(beer => {
 })
 
     return (
-        <div>
+        <div >
             <h1>All beers</h1>
             {renderBeers}
         </div>
